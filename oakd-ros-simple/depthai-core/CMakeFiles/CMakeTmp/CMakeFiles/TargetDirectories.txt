@@ -1,0 +1,3 @@
+/home/nx/dai_ws/src/oakd-ros-simple/depthai-core/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir
+/home/nx/dai_ws/src/oakd-ros-simple/depthai-core/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
+/home/nx/dai_ws/src/oakd-ros-simple/depthai-core/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_9409c.dir
