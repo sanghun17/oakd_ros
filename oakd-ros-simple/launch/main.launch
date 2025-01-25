@@ -13,17 +13,18 @@
   <!-- use or not -->
   <param name="/get_imu" value="true"/> 
   <param name="/get_imu_rotation" value="false"/>  <!-- get orientation from IMU, set false if error from IMU, check https://github.com/engcang/oakd-ros-simple/issues/5#issuecomment-1883063872 -->
-  <param name="/get_rgb" value="true"/>
+  <param name="/get_rgb" value="false"/>
   <param name="/get_gray" value="false"/> 
 
 
-  <param name="/get_stereo_ir" value="false"/> 
+  <param name="/get_stereo_ir" value="true"/> 
   <param name="/get_stereo_depth" value="false"/> 
   <param name="/get_pointcloud" value="true"/>
 
   <!-- depth post processing -->
   <param name="/pcl_max_range" value="6.0"/> <!-- [m] further than this value will not be published -->
   <param name="/pcl_min_range" value="0.3"/> <!-- [m] closer than this value will not be published -->
+  <param name="/pcl_frame_id" value="cam0"/> <!-- Frame ID for pointcloud messages -->
   <param name="/depth_confidence" value="175"/>  <!-- 0~255 -->
   <!-- <param name="/bilateral_sigma" value="5"/>  0 ~ 65535, depth filter -->
   <param name="/use_spatialFilter" value="true"/> 
@@ -41,6 +42,7 @@
   <param name="/IR_laser_brightness_mA" value="0.0"/>  <!-- 0.0:Not use, 765mA at 30% duty cycle, (MAX)1200mA at 6% duty cycle -->
   <param name="/LED_illuminator_brightness_mA" value="0.0"/> <!-- 0.0:Not use, (MAX)1500mA at 30% duty cycle -->
 
+ 
 
   <!-- YOLO: setCoordinateSize, setAnchors, setAnchorMasks should be directly edited in main.h file -->
   <param name="/get_YOLO" value="false"/>

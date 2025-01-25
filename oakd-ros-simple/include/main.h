@@ -41,7 +41,7 @@ void signal_handler(sig_atomic_t s) {
 
 using namespace std;
 
-sensor_msgs::PointCloud2 cloud2msg(pcl::PointCloud<pcl::PointXYZ> cloud, std::string frame_id = "camera_link")
+sensor_msgs::PointCloud2 cloud2msg(pcl::PointCloud<pcl::PointXYZ> cloud, std::string frame_id = "cam0")
 {
   sensor_msgs::PointCloud2 cloud_ROS;
   pcl::toROSMsg(cloud, cloud_ROS);
@@ -58,6 +58,7 @@ class oakd_ros_class{
     dai::Pipeline pipeline;
 
     string path;
+    string pcl_frame_id;
 
     /// messages for publishing
     sensor_msgs::Image l_img_msg, r_img_msg, rgb_img_msg, depth_img_msg, nn_img_msg;
@@ -100,6 +101,7 @@ class oakd_ros_class{
     oakd_ros_class(ros::NodeHandle& n) : nh(n){
       ///// params
       nh.param<std::string>("/topic_prefix", topic_prefix, "/oakd");
+      
       nh.param("/fps_rgb_yolo", fps_rgb_yolo, 30.0);
       nh.param("/fps_stereo_depth", fps_stereo_depth, 30.0);
       nh.param("/fps_IMU", fps_IMU, 200);
@@ -117,6 +119,7 @@ class oakd_ros_class{
 
       nh.param("/pcl_max_range", pcl_max_range, 6.0);
       nh.param("/pcl_min_range", pcl_min_range, 0.3);
+      nh.param<std::string>("/pcl_frame_id", pcl_frame_id, "oakd_frame");
       nh.param("/thread_num", thread_num, 3);
       // nh.param("/bilateral_sigma", bilateral_sigma, 500);
       

@@ -252,7 +252,7 @@ int main(int argc, char **argv)
                 }
               }
             }
-            oak_handler.pcl_pub.publish(cloud2msg(depth_cvt_pcl));
+            oak_handler.pcl_pub.publish(cloud2msg(depth_cvt_pcl, oak_handler.pcl_frame_id));
           }
         }
         std::chrono::milliseconds dura(2);
